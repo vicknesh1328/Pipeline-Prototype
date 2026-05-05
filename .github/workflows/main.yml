@@ -8,29 +8,13 @@ on:
 jobs:
   test-connection:
     name: Control My Laptop
-    runs-on: self-hostedname: Local Pipeline Test
-
-on:
-  push:
-    branches: [ "main" ]
-  workflow_dispatch: 
-
-jobs:
-  test-connection:
-    name: Control My Laptop
     runs-on: self-hosted
 
     steps:
       - name: Create Proof File
         shell: cmd
-        run: echo "Connection Successful" > proof.txt
+        run: echo Connection-Successful > proof.txt
 
       - name: Read the File Back
         shell: cmd
         run: type proof.txt
-    steps:
-      - name: Create a Text File
-        run: echo "SUCCESS! GitHub Actions is talking to my laptop!" > Pipeline_Proof.txt
-
-      - name: Open Notepad
-        run: start notepad.exe
