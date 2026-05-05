@@ -1,0 +1,19 @@
+name: Local Pipeline Test
+
+# Triggers the pipeline when you manually click Run, or push code
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: 
+
+jobs:
+  test-connection:
+    name: Control My Laptop
+    runs-on: self-hosted # Tells GitHub to target your open PowerShell window
+
+    steps:
+      - name: Create a Text File on Desktop
+        run: echo "SUCCESS! GitHub Actions commanded my laptop from the cloud!" > "$env:USERPROFILE\Desktop\Pipeline_Proof.txt"
+
+      - name: Open Windows Calculator
+        run: calc.exe
